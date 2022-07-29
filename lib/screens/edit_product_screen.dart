@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/products.dart';
 import '../providers/product.dart';
 
 class EditProductScreen extends StatefulWidget {
@@ -40,8 +43,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
 
   void _updateImageUrl() {
     if (!_imageUrlFocusNode.hasFocus) {
-      if (!_imageUrlController.text.isEmpty ||
-          (!_imageUrlController.text.startsWith('http') &&
+      if ((!_imageUrlController.text.startsWith('http') &&
               !_imageUrlController.text.startsWith('https')) ||
           (!_imageUrlController.text.endsWith('.png') &&
               !_imageUrlController.text.endsWith('.jpg') &&
@@ -58,11 +60,8 @@ class _EditProductScreenState extends State<EditProductScreen> {
       return;
     }
     _form.currentState!.save();
-    print(_editedProduct.title);
-    print(_editedProduct.description);
-    print(_editedProduct.price);
-    print(_editedProduct.imageUrl);
-    print(_editedProduct.id);
+    Provider.of<Products>(context, listen: false).addProduct(_editedProduct);
+    Navigator.of(context).pop();
   }
 
   Widget build(BuildContext context) {
