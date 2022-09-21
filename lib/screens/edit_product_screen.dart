@@ -109,11 +109,11 @@ class _EditProductScreenState extends State<EditProductScreen> {
         await showDialog<Null>(
           context: context,
           builder: (ctx) => AlertDialog(
-            title: Text('An error occoured!'),
-            content: Text('Something went wrong!'),
+            title: const Text('An error occoured!'),
+            content: const Text('Something went wrong!'),
             actions: <Widget>[
               FlatButton(
-                child: Text('Okay'),
+                child: const Text('Okay'),
                 onPressed: () {
                   Navigator.of(ctx).pop();
                 },
