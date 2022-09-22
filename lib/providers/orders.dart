@@ -55,27 +55,9 @@ class Orders with ChangeNotifier {
         ),
       );
     });
-    _orders = loadedOrders;
+    _orders = loadedOrders.reversed.toList();
     notifyListeners();
-    // extractedData.forEach((orderId, orderData) {
-    //   // loadedOrders.add(
-    //   //   OrderItem(
-    //   //     id: orderId,
-    //   //     amount: orderData['amount'],
-    //   //     products: (orderData['products'] as List<dynamic>)
-    //   //         .map(
-    //   //           (item) => CartItem(
-    //   //             id: item['id'],
-    //   //             title: item['title'],
-    //   //             quantity: item['quantity'],
-    //   //             price: item['price'],
-    //   //           ),
-    //   //         )
-    //   //         .toList(),
-    //   //     dateTime: DateTime.parse(orderData['dateTime']),
-    //   //   ),
-    //   // );
-    // });
+
     _orders = loadedOrders;
     notifyListeners();
   }
