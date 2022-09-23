@@ -26,6 +26,8 @@ class Orders with ChangeNotifier {
     return [..._orders];
   }
 
+  get length => null;
+
   Future<void> fetchAndSetOrders() async {
     final url = Uri.parse(
         'https://flutter-shop-app-dbee7-default-rtdb.firebaseio.com/orders.json');
